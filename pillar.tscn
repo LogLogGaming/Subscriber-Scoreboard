@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://cx7kfomt46lmr"]
+
+[ext_resource type="Script" path="res://references.gd" id="1_smkyh"]
+[ext_resource type="Texture2D" uid="uid://20kbkehbxvg8" path="res://the guys.png" id="2_p5cfy"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_p2ddw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a3a81"]
+diffuse_mode = 3
+albedo_color = Color(0.270222, 0.270222, 0.270222, 1)
+refraction_scale = 1.0
+grow_amount = 1.0
+distance_fade_max_distance = 1.0
+
+[node name="WestCraft15" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
+script = ExtResource("1_smkyh")
+
+[node name="Pillar" type="MeshInstance3D" parent="."]
+visibility_range_fade_mode = 1
+mesh = SubResource("BoxMesh_p2ddw")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_a3a81")
+
+[node name="Sprite" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.255, 0)
+billboard = 2
+texture_filter = 0
+texture = ExtResource("2_p5cfy")
+hframes = 5
+vframes = 6
+
+[node name="Text" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.501)
+pixel_size = 0.0001
+double_sided = false
+no_depth_test = true
+render_priority = 1
+text = "100"
+font_size = 4800
+outline_size = 0

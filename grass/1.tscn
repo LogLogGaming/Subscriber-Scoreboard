@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv2whb6xmjuyp"]
+
+[ext_resource type="Texture2D" uid="uid://bpdeey4dnmb34" path="res://grass/1.png" id="1_38us7"]
+
+[node name="Sprite3D" type="Sprite3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+offset = Vector2(0, 24)
+billboard = 2
+texture_filter = 0
+texture = ExtResource("1_38us7")

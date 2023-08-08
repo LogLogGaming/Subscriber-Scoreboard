@@ -1,16 +1,27 @@
-[gd_scene load_steps=9 format=3 uid="uid://ci1exebmyk3ss"]
+[gd_scene load_steps=12 format=3 uid="uid://ci1exebmyk3ss"]
 
 [ext_resource type="Script" path="res://do stuff.gd" id="1_6gfhg"]
 [ext_resource type="Material" uid="uid://c62tdlm6rsosp" path="res://ground1.tres" id="2_8fe1u"]
-[ext_resource type="Script" path="res://get things.gd" id="2_nuukg"]
 [ext_resource type="PackedScene" uid="uid://cx7kfomt46lmr" path="res://pillar.tscn" id="2_qb4qq"]
 [ext_resource type="Script" path="res://camera.gd" id="5_cm106"]
 [ext_resource type="Environment" uid="uid://dkg0hgny6p857" path="res://environment1.tres" id="6_1cdps"]
 [ext_resource type="Texture2D" uid="uid://d1h3mtrcxwwtn" path="res://spr_heaven.png" id="7_7ppgg"]
+[ext_resource type="Script" path="res://stuff.gd" id="8_ak60v"]
+[ext_resource type="Texture2D" uid="uid://6btej72m8kav" path="res://bit.svg" id="8_rilfk"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_nfdl2"]
 
-[node name="Node3D" type="Node3D"]
+[sub_resource type="BoxMesh" id="BoxMesh_5kory"]
+size = Vector3(8, 0.25, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kilnd"]
+diffuse_mode = 3
+albedo_color = Color(0.65098, 0.65098, 0.65098, 1)
+refraction_scale = 1.0
+grow_amount = 1.0
+distance_fade_max_distance = 1.0
+
+[node name="Node2D" type="Node3D"]
 script = ExtResource("1_6gfhg")
 
 [node name="Ground" type="MeshInstance3D" parent="."]
@@ -18,25 +29,29 @@ transform = Transform3D(1000, 0, 0, 0, 1, 0, 0, 0, 1000, 0, 0, 0)
 mesh = SubResource("PlaneMesh_nfdl2")
 surface_material_override/0 = ExtResource("2_8fe1u")
 
+[node name="Base" type="MeshInstance3D" parent="."]
+visibility_range_fade_mode = 1
+mesh = SubResource("BoxMesh_5kory")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kilnd")
+
 [node name="LogLog" parent="." instance=ExtResource("2_qb4qq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.125, 0)
 
 [node name="Jugg" parent="." instance=ExtResource("2_qb4qq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8, 0.125, 0)
 
 [node name="WestCraft15" parent="." instance=ExtResource("2_qb4qq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0.125, 0)
 
 [node name="Elili" parent="." instance=ExtResource("2_qb4qq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.125, 0)
 
 [node name="ThePeashooter23" parent="." instance=ExtResource("2_qb4qq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, 0.125, 0)
 
 [node name="M3KAI5ER44" parent="." instance=ExtResource("2_qb4qq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0)
-
-[node name="HTTPRequest" type="HTTPRequest" parent="."]
-script = ExtResource("2_nuukg")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.125, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.5, 24)
@@ -59,4 +74,11 @@ double_sided = false
 texture_filter = 0
 texture = ExtResource("7_7ppgg")
 
-[connection signal="request_completed" from="HTTPRequest" to="HTTPRequest" method="_on_request_completed"]
+[node name="bit" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.375, 0.45, -0.715)
+billboard = 2
+texture_filter = 0
+texture = ExtResource("8_rilfk")
+
+[node name="stuff" type="Node" parent="."]
+script = ExtResource("8_ak60v")

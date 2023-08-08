@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://6btej72m8kav"
-path.s3tc="res://.godot/imported/a4e6340ee4b596a4a1c4ed5391fd2bdf.svg-c75f13fa880255e1225b1b58aeb2a6af.s3tc.ctex"
+path.s3tc="res://.godot/imported/bit.svg-1c24c19388365340cac9529b1b758be6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://a4e6340ee4b596a4a1c4ed5391fd2bdf.svg"
-dest_files=["res://.godot/imported/a4e6340ee4b596a4a1c4ed5391fd2bdf.svg-c75f13fa880255e1225b1b58aeb2a6af.s3tc.ctex"]
+source_file="res://bit.svg"
+dest_files=["res://.godot/imported/bit.svg-1c24c19388365340cac9529b1b758be6.s3tc.ctex"]
 
 [params]
 
@@ -26,7 +26,7 @@ mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
-process/fix_alpha_border=true
+process/fix_alpha_border=false
 process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false

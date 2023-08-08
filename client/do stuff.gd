@@ -3,7 +3,7 @@ extends Node3D
 const possibleMusic = ["airport_lounge", "itty_bitty_8_bit", "motivator", "movement_proposition", "new_friendly", "pinball_spring", "pixel_peeker_polka", "radio_martini", "unreal_superhero_3"]
 
 @onready var people = [$LogLog, $Jugg, $WestCraft15, $Elili, $ThePeashooter23, $M3KAI5ER44]
-@onready var things = $HTTPRequest
+@onready var things = $stuff
 
 @onready var music = $Music
 @onready var camera = $Camera3D
@@ -13,13 +13,18 @@ var saw_it = FileAccess.file_exists("user://SaveFile1.sav")
 
 var mode = "subs"
 
+var client = ENetMultiplayerPeer.new()
+
 func _ready():
+	client.create_client("127.0.0.1", 25566)
+	multiplayer.multiplayer_peer = client
 	for i in range(1, 6):
 		var grass = load("res://grass/" + String.num(i) + ".tscn")
-		for j in range(150 * i + 100):
+		for j in range(100 * i + 200):
 			var newGrass = grass.instantiate()
-			newGrass.position.x = randf_range(-i * 200, i * 200)
-			newGrass.position.z = randf_range(-i * 200, i * 200)
+			while newGrass.position.x > -10 && newGrass.position.x < 10 && newGrass.position.z > -4 && newGrass.position.z < 4:
+				newGrass.position.x = randf_range(-i * 200, i * 200)
+				newGrass.position.z = randf_range(-i * 200, i * 200)
 			add_child(newGrass)
 
 func _process(_delta):

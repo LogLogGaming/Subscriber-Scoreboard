@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://6chh3d3pe6n7"]
+
+[ext_resource type="Script" path="res://servering.gd" id="1_itib6"]
+[ext_resource type="Script" path="res://get things.gd" id="2_fn1x0"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_itib6")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "wa"
+
+[node name="stuff" type="HTTPRequest" parent="."]
+script = ExtResource("2_fn1x0")
+
+[connection signal="request_completed" from="stuff" to="stuff" method="_on_request_completed"]
